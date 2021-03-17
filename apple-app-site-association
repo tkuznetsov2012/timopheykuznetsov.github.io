@@ -3,7 +3,7 @@
         "apps": [],
         "details": [{
             "appID": "L3526MJXB6.com.nspk.sbpaytest",
-            "paths": ["/sbpay/*"]
+            "paths": ["/*"]
         }]
     }
 }
