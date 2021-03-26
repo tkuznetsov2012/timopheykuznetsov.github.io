@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.example.sbpay_client",
+    "sha256_cert_fingerprints":
+    ["49:20:A6:65:A0:EA:05:FE:2F:32:11:B8:84:8B:0B:4B:17:19:5A:18:9E:01:0C:14:4E:FC:CB:08:9D:01:8A:10"]
+  }
+}]
