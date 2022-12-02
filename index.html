@@ -290,17 +290,6 @@
     }
   }
 </style>
-
-{% include output_helper.html initial_output_content=initial_output_content %}
-
-<script>
-log = ChromeSamples.log;
-
-if (!("NDEFReader" in window))
-  ChromeSamples.setStatus("Web NFC is not available. Use Chrome on Android.");
-</script>
-
-{% include js_snippet.html filename='index.js' %}  
   
 <head>
   <meta charset="utf-8">
@@ -337,4 +326,13 @@ if (!("NDEFReader" in window))
 
 </body>
 </html>
+{% include output_helper.html initial_output_content=initial_output_content %}
 
+<script>
+log = ChromeSamples.log;
+
+if (!("NDEFReader" in window))
+  ChromeSamples.setStatus("Web NFC is not available. Use Chrome on Android.");
+</script>
+
+{% include js_snippet.html filename='index.js' %}  
