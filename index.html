@@ -304,6 +304,33 @@
 if (!("NDEFReader" in window))
   console.log("Web NFC is not available. Use Chrome on Android.");
 </script>
+</head>
+<body>
+  <div class="content" role="main">
+  <!-- Resources -->
+  <h2>Press to Pay</h2>
+
+  <div class="card-container">
+    <a class="card" target="_blank" rel="noopener" href="sbpay://app?qrcid=AS1000670LSS7DN18SJQDNP4B05KLJL1">
+      <span>SBPay</span>
+    </a>
+  </div>
+  <div class="card-container">
+    <a class="card" target="_blank" rel="noopener" href="https://sbp.nspk.ru/sbpay?qrcid=AS1000670LSS7DN18SJQDNP4B05KLJL1">
+      <span>SBPayApp</span>
+    </a>
+  </div>
+    <div class="card-container">
+    <a class="card" target="_blank" rel="noopener" href="https://timopheykuznetsov.github.io/sbpay?qrcid=AS1000670LSS7DN18SJQDNP4B05KLJL1">
+      <span>SBPay iOS</span>
+    </a>
+  </div>
+
+</div>
+  <button id="scanButton">Scan</button>
+<button id="writeButton">Write</button>
+<button id="makeReadOnlyButton">Make Read-Only</button>
+
   <script>
   document.getElementById('scanButton').addEventListener("click", async () => {
   log("User clicked scan button");
@@ -338,32 +365,6 @@ document.getElementById('writeButton').addEventListener("click", async () => {
   }
 });
   </script>
-</head>
-<body>
-  <div class="content" role="main">
-  <!-- Resources -->
-  <h2>Press to Pay</h2>
-
-  <div class="card-container">
-    <a class="card" target="_blank" rel="noopener" href="sbpay://app?qrcid=AS1000670LSS7DN18SJQDNP4B05KLJL1">
-      <span>SBPay</span>
-    </a>
-  </div>
-  <div class="card-container">
-    <a class="card" target="_blank" rel="noopener" href="https://sbp.nspk.ru/sbpay?qrcid=AS1000670LSS7DN18SJQDNP4B05KLJL1">
-      <span>SBPayApp</span>
-    </a>
-  </div>
-    <div class="card-container">
-    <a class="card" target="_blank" rel="noopener" href="https://timopheykuznetsov.github.io/sbpay?qrcid=AS1000670LSS7DN18SJQDNP4B05KLJL1">
-      <span>SBPay iOS</span>
-    </a>
-  </div>
-
-</div>
-  <button id="scanButton">Scan</button>
-<button id="writeButton">Write</button>
-<button id="makeReadOnlyButton">Make Read-Only</button>
 </body>
 </html>
 
