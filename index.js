@@ -26,7 +26,7 @@ writeButton.addEventListener("click", async () => {
   const ndef = new NDEFReader();
   try {
     await ndef.write({
-      records: [{ recordType: "url", data: "https://cxlabs.sap.com" }]
+      records: [{ recordType: "url", data: "https://timopheykuznetsov.github.io/" }]
     });
     log("writeUrlLog", "> URl Message written");
   } catch {
