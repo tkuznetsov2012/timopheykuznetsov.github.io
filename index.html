@@ -329,7 +329,7 @@ if (!("NDEFReader" in window))
 </div>
   <button id="scanButton">Scan</button>
 <button id="writeButton">Write</button>
-<button id="makeReadOnlyButton">Make Read-Only</button>
+  <h2 id="text"></h2>
 
   <script>
   document.getElementById('scanButton').addEventListener("click", async () => {
@@ -347,6 +347,7 @@ if (!("NDEFReader" in window))
     ndef.addEventListener("reading", ({ message, serialNumber }) => {
       console.log("> Serial Number: ${serialNumber}");
       console.log("> Records: (${message.records.length})");
+      document.getElementById('scanButton').value = message;
     });
   } catch (error) {
     console.log("Argh! " + error);
