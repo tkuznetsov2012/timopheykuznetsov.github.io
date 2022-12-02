@@ -1,4 +1,4 @@
-scanButton.addEventListener("click", async () => {
+document.getElementById("scanButton").addEventListener("click", async () => {
   log("User clicked scan button");
 
   try {
@@ -18,8 +18,7 @@ scanButton.addEventListener("click", async () => {
     log("Argh! " + error);
   }
 });
-writeButton.addEventListener("click", async () => {
-  document.getElementById("writeUrl").addEventListener("click", async () => {
+document.getElementById("writeButton").addEventListener("click", async () => {
   log("writeUrlLog", "User clicked write button");
 
   const ndef = new NDEFReader();
@@ -30,18 +29,5 @@ writeButton.addEventListener("click", async () => {
     log("writeUrlLog", "> URl Message written");
   } catch {
     log("writeUrlLog", "Argh! " + error);
-  }
-});
-});
-
-makeReadOnlyButton.addEventListener("click", async () => {
-  log("User clicked make read-only button");
-
-  try {
-    const ndef = new NDEFReader();
-    await ndef.makeReadOnly();
-    log("> NFC tag has been made permanently read-only");
-  } catch (error) {
-    log("Argh! " + error);
   }
 });
