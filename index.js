@@ -1,4 +1,4 @@
-function onReadClick(){
+async function onReadClick(){
   log("User clicked scan button");
 
   try {
@@ -19,7 +19,7 @@ function onReadClick(){
   }
 }
 
-function onWriteClick(){
+async function onWriteClick(){
   log("writeUrlLog", "User clicked write button");
 
   const ndef = new NDEFReader();
