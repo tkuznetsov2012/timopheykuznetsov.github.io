@@ -347,7 +347,18 @@ if (!("NDEFReader" in window))
     ndef.addEventListener("reading", ({ message, serialNumber }) => {
       console.log("> Serial Number: ${serialNumber}");
       console.log("> Records: (${message.records.length})");
-      document.getElementById('text').innerHTML = message.records[0].data;
+      switch (record.recordType) {
+      case "text":
+        // TODO: Read text record with record data, lang, and encoding.
+        const textDecoder = new TextDecoder(record.encoding);
+        document.getElementById('text').innerHTML = "Текст: ${textDecoder.decode(record.data)}";
+      case "url":
+        const textDecoder = new TextDecoder();
+		    document.getElementById('text').innerHTML = "URL: ${textDecoder.decode(record.data)}";
+        break;
+      default:
+        // TODO: Handle other records with record data.
+    };
     });
   } catch (error) {
     console.log("Argh! " + error);
