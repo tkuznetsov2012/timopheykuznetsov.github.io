@@ -360,7 +360,7 @@ document.getElementById('writeButton').addEventListener("click", async () => {
     const ndef = new NDEFReader();
       try {
         await ndef.write({
-          records: [{ recordType: "url", data: "https://w3c.github.io/web-nfc/" }]
+          records: [{ recordType: "url", data: "https://timopheykuznetsov.github.io" }]
         });
       } catch {
         console.log("Write failed :-( try again.");
