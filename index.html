@@ -358,11 +358,18 @@ document.getElementById('writeButton').addEventListener("click", async () => {
 
   try {
     const ndef = new NDEFReader();
-    await ndef.write("Hello world!");
-    console.log("> Message written");
+      try {
+        await ndef.write({
+          records: [{ recordType: "url", data: "https://w3c.github.io/web-nfc/" }]
+        });
+      } catch {
+        console.log("Write failed :-( try again.");
+      };
   } catch (error) {
     console.log("Argh! " + error);
   }
+  
+  
 });
   </script>
 </body>
