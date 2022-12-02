@@ -297,6 +297,13 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <script>
+log = ChromeSamples.log;
+
+if (!("NDEFReader" in window))
+  ChromeSamples.setStatus("Web NFC is not available. Use Chrome on Android.");
+</script>
 </head>
 <body>
   <div class="content" role="main">
@@ -323,16 +330,6 @@
   <button id="scanButton">Scan</button>
 <button id="writeButton">Write</button>
 <button id="makeReadOnlyButton">Make Read-Only</button>
-
 </body>
 </html>
-{% include output_helper.html initial_output_content=initial_output_content %}
 
-<script>
-log = ChromeSamples.log;
-
-if (!("NDEFReader" in window))
-  ChromeSamples.setStatus("Web NFC is not available. Use Chrome on Android.");
-</script>
-
-{% include js_snippet.html filename='index.js' %}  
