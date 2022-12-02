@@ -320,5 +320,20 @@
   </div>
 
 </div>
+  <button id="scanButton">Scan</button>
+<button id="writeButton">Write</button>
+<button id="makeReadOnlyButton">Make Read-Only</button>
+
+{% include output_helper.html initial_output_content=initial_output_content %}
+
+<script>
+log = ChromeSamples.log;
+
+if (!("NDEFReader" in window))
+  ChromeSamples.setStatus("Web NFC is not available. Use Chrome on Android.");
+</script>
+
+{% include js_snippet.html filename='index.js' %}
 </body>
 </html>
+
