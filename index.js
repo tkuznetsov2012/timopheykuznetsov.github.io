@@ -1,4 +1,4 @@
-scanButton.addEventListener("click", async () => {
+readButton.addEventListener("click", async () => {
   log("User clicked scan button");
 
   try {
@@ -18,7 +18,6 @@ scanButton.addEventListener("click", async () => {
     log("Argh! " + error);
   }
 });
-
 writeButton.addEventListener("click", async () => {
   document.getElementById("writeUrl").addEventListener("click", async () => {
   log("writeUrlLog", "User clicked write button");
