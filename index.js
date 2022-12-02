@@ -1,4 +1,4 @@
-document.getElementById("scanButton").addEventListener("click", async () => {
+onReadClick(){
   log("User clicked scan button");
 
   try {
@@ -17,8 +17,9 @@ document.getElementById("scanButton").addEventListener("click", async () => {
   } catch (error) {
     log("Argh! " + error);
   }
-});
-document.getElementById("writeButton").addEventListener("click", async () => {
+}
+
+onWriteClick(){
   log("writeUrlLog", "User clicked write button");
 
   const ndef = new NDEFReader();
@@ -30,4 +31,4 @@ document.getElementById("writeButton").addEventListener("click", async () => {
   } catch {
     log("writeUrlLog", "Argh! " + error);
   }
-});
+}
