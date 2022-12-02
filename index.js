@@ -1,5 +1,7 @@
-async function onReadClick(){
+function onReadClick(){
   log("User clicked scan button");
+  async () => {
+ log("User clicked scan button2");
 
   try {
     const ndef = new NDEFReader();
@@ -17,10 +19,13 @@ async function onReadClick(){
   } catch (error) {
     log("Argh! " + error);
   }
+  }
 }
 
-async function onWriteClick(){
+function onWriteClick(){
   log("writeUrlLog", "User clicked write button");
+  async () => {
+  log("writeUrlLog", "User clicked write button2");
 
   const ndef = new NDEFReader();
   try {
@@ -30,5 +35,6 @@ async function onWriteClick(){
     log("writeUrlLog", "> URl Message written");
   } catch {
     log("writeUrlLog", "Argh! " + error);
+  }
   }
 }
