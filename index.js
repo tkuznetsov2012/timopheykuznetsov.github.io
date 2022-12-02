@@ -20,15 +20,19 @@ scanButton.addEventListener("click", async () => {
 });
 
 writeButton.addEventListener("click", async () => {
-  log("User clicked write button");
+  document.getElementById("writeUrl").addEventListener("click", async () => {
+  log("writeUrlLog", "User clicked write button");
 
+  const ndef = new NDEFReader();
   try {
-    const ndef = new NDEFReader();
-    await ndef.write("Hello world!");
-    log("> Message written");
-  } catch (error) {
-    log("Argh! " + error);
+    await ndef.write({
+      records: [{ recordType: "url", data: "https://cxlabs.sap.com" }]
+    });
+    log("writeUrlLog", "> URl Message written");
+  } catch {
+    log("writeUrlLog", "Argh! " + error);
   }
+});
 });
 
 makeReadOnlyButton.addEventListener("click", async () => {
