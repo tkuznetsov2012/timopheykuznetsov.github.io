@@ -1,4 +1,4 @@
-readButton.addEventListener("click", async () => {
+scanButton.addEventListener("click", async () => {
   log("User clicked scan button");
 
   try {
