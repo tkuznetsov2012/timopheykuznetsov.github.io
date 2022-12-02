@@ -350,11 +350,11 @@ if (!("NDEFReader" in window))
       switch (record.recordType) {
       case "text":
         // TODO: Read text record with record data, lang, and encoding.
-        const textDecoder = new TextDecoder(record.encoding);
-        document.getElementById('text').innerHTML = "Текст: ${textDecoder.decode(record.data)}";
+        // const textDecoder = new TextDecoder(record.encoding);
+        // document.getElementById('text').innerHTML = "Текст: ${textDecoder.decode(record.data)}";
       case "url":
-        const textDecoder = new TextDecoder();
-		    document.getElementById('text').innerHTML = "URL: ${textDecoder.decode(record.data)}";
+        // const textDecoder = new TextDecoder();
+	//	    document.getElementById('text').innerHTML = "URL: ${textDecoder.decode(record.data)}";
         break;
       default:
         // TODO: Handle other records with record data.
