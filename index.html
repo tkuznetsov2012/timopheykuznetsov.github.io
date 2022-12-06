@@ -364,6 +364,7 @@
     });
   } catch (error) {
     console.log("Argh! " + error);
+    document.getElementById('text').innerHTML = "Error! " + error;
   }
 });
 
@@ -381,6 +382,7 @@ document.getElementById('text').innerHTML = "tap NFC tag";
       };
   } catch (error) {
     console.log("Argh! " + error);
+    document.getElementById('text').innerHTML = "Error! " + error;
   }
   
   
