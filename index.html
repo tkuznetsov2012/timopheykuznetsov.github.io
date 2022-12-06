@@ -357,6 +357,7 @@
 	document.getElementById('text').innerHTML = "URL: ${textDecoder.decode(record.data)}";
         break;
       default:
+	document.getElementById('text').innerHTML = "Неизвестный тип: ${record.recordType}";	      
         // TODO: Handle other records with record data.
     };
     });
