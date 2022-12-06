@@ -324,6 +324,9 @@
   <button id="scanButton">Read</button>
 <button id="writeButton">Write</button>
   <h2 id="text"></h2>
+	<p id="text1"></p>
+	<p id="text2"></p>
+	<p id="text3"></p>
   <script src="https://unpkg.com/text-encoding@0.6.4/lib/encoding-indexes.js"></script>
   <script src="https://unpkg.com/text-encoding@0.6.4/lib/encoding.js"></script>
   <script>
@@ -347,32 +350,73 @@
     });
     document.getElementById('text').innerHTML = "tap NFC tag";	
     ndef.addEventListener("reading", ({ message, serialNumber }) => {
+	var record = message.records[0];
     try{
       console.log("> Serial Number: ${serialNumber}");
       console.log("> Records: (${message.records.length})");
-      var record = message.records[0];
+      
       switch (record.recordType) {
       case "text":
         // TODO: Read text record with record data, lang, and encoding.
         var textDecoder = new TextDecoder(record.encoding);
-        document.getElementById('text').innerHTML = "Текст: " + textDecoder.decode(record.data);
+        document.getElementById('text1').innerHTML = "Текст: " + textDecoder.decode(record.data);
 	break;
       case "url":
         var textDecoder2 = new TextDecoder();
-	document.getElementById('text').innerHTML = "URL: " + textDecoder2.decode(record.data);
+	document.getElementById('text1').innerHTML = "URL: " + textDecoder2.decode(record.data);
         break;
       default:
-	document.getElementById('text').innerHTML = "Неизвестный тип: ${record.recordType}";	      
+	document.getElementById('text1').innerHTML = "Неизвестный тип: ${record.recordType}";	      
+        // TODO: Handle other records with record data.
+    };
+	     } catch (error) {
+    console.log("error! " + error);
+    document.getElementById('text').innerHTML = "Error! " + error;
+    }
+	    try{
+	    record = message.records[1];
+      switch (record.recordType) {
+      case "text":
+        // TODO: Read text record with record data, lang, and encoding.
+        var textDecoder = new TextDecoder(record.encoding);
+        document.getElementById('text1').innerHTML = "Текст: " + textDecoder.decode(record.data);
+	break;
+      case "url":
+        var textDecoder2 = new TextDecoder();
+	document.getElementById('text1').innerHTML = "URL: " + textDecoder2.decode(record.data);
+        break;
+      default:
+	document.getElementById('text1').innerHTML = "Неизвестный тип: ${record.recordType}";	      
+        // TODO: Handle other records with record data.
+    };
+	} catch (error) {
+    console.log("error! " + error);
+    document.getElementById('text1').innerHTML = "Error! " + error;
+    }
+	try{
+	    record = message.records[2];
+      switch (record.recordType) {
+      case "text":
+        // TODO: Read text record with record data, lang, and encoding.
+        var textDecoder = new TextDecoder(record.encoding);
+        document.getElementById('text2').innerHTML = "Текст: " + textDecoder.decode(record.data);
+	break;
+      case "url":
+        var textDecoder2 = new TextDecoder();
+	document.getElementById('text2').innerHTML = "URL: " + textDecoder2.decode(record.data);
+        break;
+      default:
+	document.getElementById('text2').innerHTML = "Неизвестный тип: ${record.recordType}";	      
         // TODO: Handle other records with record data.
     };
     } catch (error) {
     console.log("error! " + error);
-    document.getElementById('text').innerHTML = "Error! " + error;
+    document.getElementById('text2').innerHTML = "Error! " + error;
     }
     });
   } catch (error) {
     console.log("error! " + error);
-    document.getElementById('text').innerHTML = "Error! " + error;
+    document.getElementById('text2').innerHTML = "Error! " + error;
   }
 });
 
