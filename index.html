@@ -304,7 +304,7 @@
   <!-- Resources -->
   <h2>Press to Pay</h2>
 
-  <div class="card-container">
+  <!--<div class="card-container">
     <a class="card" target="_blank" rel="noopener" href="sbpay://app?qrcid=AS1000670LSS7DN18SJQDNP4B05KLJL1">
       <span>SBPay</span>
     </a>
@@ -318,11 +318,21 @@
     <a class="card" target="_blank" rel="noopener" href="https://timopheykuznetsov.github.io/sbpay?qrcid=AS1000670LSS7DN18SJQDNP4B05KLJL1">
       <span>SBPay iOS</span>
     </a>
+  </div>-->
+<div class="card-container">
+    <a class="card" target="_blank" rel="noopener" id="scanButton">
+      <span>Read</span>
+    </a>
   </div>
+  <div class="card-container">
+    <a class="card" target="_blank" rel="noopener" id="writeButton">
+      <span>Write</span>
+    </a>
+  </div>	  
 
 </div>
-  <button id="scanButton">Read</button>
-<button id="writeButton">Write</button>
+  <!-- <button id="scanButton">Read</button>
+<button id="writeButton">Write</button> -->
   <h2 id="text"></h2>
 	<p id="text1"></p>
 	<p id="text2"></p>
@@ -334,7 +344,7 @@
   	console.log("Web NFC is not available. Use Chrome on Android.");
   	document.getElementById('text').innerHTML = "Web NFC is not available. Use Chrome on Android.";
 	} else{
-	document.getElementById('text').innerHTML = "version 1.0.4";	
+	document.getElementById('text').innerHTML = "version 1.0.5";	
 	}
 </script>
   <script>
@@ -427,7 +437,7 @@ document.getElementById('text').innerHTML = "tap NFC tag";
     const ndef = new NDEFReader();
       try {
         await ndef.write({
-          records: [{ recordType: "url", data: "https://timopheykuznetsov.github.io" }]
+          records: [{ recordType: "url", data: "https://timopheykuznetsov.github.io" }, { recordType: "text", data: "text1" }, { recordType: "text", data: "text2" }]
         });
       } catch {
         console.log("Write failed :-( try again.");
