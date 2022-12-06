@@ -330,6 +330,8 @@
 	if (!("NDEFReader" in window)){
   	console.log("Web NFC is not available. Use Chrome on Android.");
   	document.getElementById('text').innerHTML = "Web NFC is not available. Use Chrome on Android.";
+	} else{
+	document.getElementById('text').innerHTML = "version 1.0.1";	
 	}
 </script>
   <script>
@@ -352,12 +354,12 @@
       switch (record.recordType) {
       case "text":
         // TODO: Read text record with record data, lang, and encoding.
-        const textDecoder = new TextDecoder(record.encoding);
+        var textDecoder = new TextDecoder(record.encoding);
         document.getElementById('text').innerHTML = "Текст: ${textDecoder.decode(record.data)}";
 	break;
       case "url":
-        textDecoder = new TextDecoder();
-	document.getElementById('text').innerHTML = "URL: ${textDecoder.decode(record.data)}";
+        var textDecoder2 = new TextDecoder();
+	document.getElementById('text').innerHTML = "URL: ${textDecoder2.decode(record.data)}";
         break;
       default:
 	document.getElementById('text').innerHTML = "Неизвестный тип: ${record.recordType}";	      
