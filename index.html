@@ -330,7 +330,8 @@ if (!("NDEFReader" in window))
   <button id="scanButton">Read</button>
 <button id="writeButton">Write</button>
   <h2 id="text"></h2>
-
+  <script src="https://unpkg.com/text-encoding@0.6.4/lib/encoding-indexes.js"></script>
+  <script src="https://unpkg.com/text-encoding@0.6.4/lib/encoding.js"></script>
   <script>
   document.getElementById('scanButton').addEventListener("click", async () => {
   console.log("User clicked scan button");
@@ -339,7 +340,18 @@ if (!("NDEFReader" in window))
     const ndef = new NDEFReader();
     await ndef.scan();
     console.log("> Scan started");
-
+	switch (record.recordType) {
+      case "text":
+        // TODO: Read text record with record data, lang, and encoding.
+        const textDecoder = new TextDecoder(record.encoding);
+        document.getElementById('text').innerHTML = "Текст: ${textDecoder.decode(record.data)}";
+      case "url":
+        const textDecoder = new TextDecoder();
+		    document.getElementById('text').innerHTML = "URL: ${textDecoder.decode(record.data)}";
+        break;
+      default:
+        // TODO: Handle other records with record data.
+    };
     ndef.addEventListener("readingerror", () => {
       log("Argh! Cannot read data from the NFC tag. Try another one?");
     });
