@@ -297,13 +297,7 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  
  
-  <script>
-
-if (!("NDEFReader" in window))
-  console.log("Web NFC is not available. Use Chrome on Android.");
-</script>
 </head>
 <body>
   <div class="content" role="main">
@@ -332,6 +326,11 @@ if (!("NDEFReader" in window))
   <h2 id="text"></h2>
   <script src="https://unpkg.com/text-encoding@0.6.4/lib/encoding-indexes.js"></script>
   <script src="https://unpkg.com/text-encoding@0.6.4/lib/encoding.js"></script>
+  <script>
+	if (!("NDEFReader" in window))
+  	console.log("Web NFC is not available. Use Chrome on Android.");
+  	document.getElementById('text').innerHTML = "Web NFC is not available. Use Chrome on Android.";
+</script>
   <script>
   document.getElementById('scanButton').addEventListener("click", async () => {
   console.log("User clicked scan button");
