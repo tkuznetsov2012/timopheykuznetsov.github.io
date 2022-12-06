@@ -343,7 +343,7 @@
     ndef.addEventListener("readingerror", () => {
       log("Argh! Cannot read data from the NFC tag. Try another one?");
     });
-
+    document.getElementById('text').innerHTML = "tap NFC tag";	
     ndef.addEventListener("reading", ({ message, serialNumber }) => {
       console.log("> Serial Number: ${serialNumber}");
       console.log("> Records: (${message.records.length})");
@@ -369,7 +369,7 @@
 
 document.getElementById('writeButton').addEventListener("click", async () => {
   console.log("User clicked write button");
-
+document.getElementById('text').innerHTML = "tap NFC tag";	
   try {
     const ndef = new NDEFReader();
       try {
