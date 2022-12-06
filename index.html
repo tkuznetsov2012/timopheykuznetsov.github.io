@@ -334,7 +334,7 @@
   	console.log("Web NFC is not available. Use Chrome on Android.");
   	document.getElementById('text').innerHTML = "Web NFC is not available. Use Chrome on Android.";
 	} else{
-	document.getElementById('text').innerHTML = "version 1.0.3";	
+	document.getElementById('text').innerHTML = "version 1.0.4";	
 	}
 </script>
   <script>
@@ -371,30 +371,10 @@
     };
 	     } catch (error) {
     console.log("error! " + error);
-    document.getElementById('text').innerHTML = "Error! " + error;
+    document.getElementById('text1').innerHTML = "Error! " + error;
     }
 	    try{
 	    record = message.records[1];
-      switch (record.recordType) {
-      case "text":
-        // TODO: Read text record with record data, lang, and encoding.
-        var textDecoder = new TextDecoder(record.encoding);
-        document.getElementById('text1').innerHTML = "Текст: " + textDecoder.decode(record.data);
-	break;
-      case "url":
-        var textDecoder2 = new TextDecoder();
-	document.getElementById('text1').innerHTML = "URL: " + textDecoder2.decode(record.data);
-        break;
-      default:
-	document.getElementById('text1').innerHTML = "Неизвестный тип: ${record.recordType}";	      
-        // TODO: Handle other records with record data.
-    };
-	} catch (error) {
-    console.log("error! " + error);
-    document.getElementById('text1').innerHTML = "Error! " + error;
-    }
-	try{
-	    record = message.records[2];
       switch (record.recordType) {
       case "text":
         // TODO: Read text record with record data, lang, and encoding.
@@ -409,14 +389,34 @@
 	document.getElementById('text2').innerHTML = "Неизвестный тип: ${record.recordType}";	      
         // TODO: Handle other records with record data.
     };
-    } catch (error) {
+	} catch (error) {
     console.log("error! " + error);
     document.getElementById('text2').innerHTML = "Error! " + error;
+    }
+	try{
+	    record = message.records[2];
+      switch (record.recordType) {
+      case "text":
+        // TODO: Read text record with record data, lang, and encoding.
+        var textDecoder = new TextDecoder(record.encoding);
+        document.getElementById('text3').innerHTML = "Текст: " + textDecoder.decode(record.data);
+	break;
+      case "url":
+        var textDecoder2 = new TextDecoder();
+	document.getElementById('text3').innerHTML = "URL: " + textDecoder2.decode(record.data);
+        break;
+      default:
+	document.getElementById('text3').innerHTML = "Неизвестный тип: ${record.recordType}";	      
+        // TODO: Handle other records with record data.
+    };
+    } catch (error) {
+    console.log("error! " + error);
+    document.getElementById('text3').innerHTML = "Error! " + error;
     }
     });
   } catch (error) {
     console.log("error! " + error);
-    document.getElementById('text2').innerHTML = "Error! " + error;
+    document.getElementById('text3').innerHTML = "Error! " + error;
   }
 });
 
