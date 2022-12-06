@@ -452,7 +452,7 @@ document.getElementById('text').innerHTML = "tap NFC tag";
     const ndef = new NDEFReader();
       try {
         await ndef.write({
-          records: [{ recordType: "url", data: "https://timopheykuznetsov.github.io" }, { recordType: "text", data: "text1" }, { recordType: "text", data: document.getElementById('name').value }]
+          records: [{ recordType: "url", data: "https://timopheykuznetsov.github.io?b=333" }, { recordType: "text", data: "Test2" }, { recordType: "text", data: document.getElementById('name').value }]
         }).then(() => {
     		read();
   	});
