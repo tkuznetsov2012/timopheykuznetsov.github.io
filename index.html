@@ -331,7 +331,7 @@
   	console.log("Web NFC is not available. Use Chrome on Android.");
   	document.getElementById('text').innerHTML = "Web NFC is not available. Use Chrome on Android.";
 	} else{
-	document.getElementById('text').innerHTML = "version 1.0.1";	
+	document.getElementById('text').innerHTML = "version 1.0.2";	
 	}
 </script>
   <script>
@@ -355,23 +355,23 @@
       case "text":
         // TODO: Read text record with record data, lang, and encoding.
         var textDecoder = new TextDecoder(record.encoding);
-        document.getElementById('text').innerHTML = "Текст: ${textDecoder.decode(record.data)}";
+        document.getElementById('text').innerHTML = "Текст: " + textDecoder.decode(record.data);
 	break;
       case "url":
         var textDecoder2 = new TextDecoder();
-	document.getElementById('text').innerHTML = "URL: ${textDecoder2.decode(record.data)}";
+	document.getElementById('text').innerHTML = "URL: " + textDecoder2.decode(record.data);
         break;
       default:
 	document.getElementById('text').innerHTML = "Неизвестный тип: ${record.recordType}";	      
         // TODO: Handle other records with record data.
     };
     } catch (error) {
-    console.log("Argh! " + error);
+    console.log("error! " + error);
     document.getElementById('text').innerHTML = "Error! " + error;
     }
     });
   } catch (error) {
-    console.log("Argh! " + error);
+    console.log("error! " + error);
     document.getElementById('text').innerHTML = "Error! " + error;
   }
 });
@@ -389,7 +389,7 @@ document.getElementById('text').innerHTML = "tap NFC tag";
         console.log("Write failed :-( try again.");
       };
   } catch (error) {
-    console.log("Argh! " + error);
+    console.log("error! " + error);
     document.getElementById('text').innerHTML = "Error! " + error;
   }
   
