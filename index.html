@@ -357,6 +357,12 @@
 </script>
   <script>
 	  
+function clear(){
+	document.getElementById('text1').innerHTML = "";
+	document.getElementById('text2').innerHTML = "";
+	document.getElementById('text3').innerHTML = "";
+}
+	  
 async function read(){
 	{
   console.log("User clicked scan button");
@@ -442,10 +448,12 @@ async function read(){
 }
 	  
   document.getElementById('scanButton').addEventListener("click", async () => {
+	  clear();
 	  read();
   });
 
 document.getElementById('writeButton').addEventListener("click", async () => {
+	clear();
   console.log("User clicked write button");
 document.getElementById('text').innerHTML = "tap NFC tag";	
   try {
@@ -469,6 +477,7 @@ document.getElementById('text').innerHTML = "tap NFC tag";
 });
 	  
 document.getElementById('sendName').addEventListener("click", async () => {
+	clear();
   console.log("User clicked sendName button");
 document.getElementById('text').innerHTML = "tap NFC card";	
   try {
