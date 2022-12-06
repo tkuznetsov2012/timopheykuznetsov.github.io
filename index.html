@@ -352,7 +352,7 @@
   	console.log("Web NFC is not available. Use Chrome on Android.");
   	document.getElementById('text').innerHTML = "Web NFC is not available. Use Chrome on Android.";
 	} else{
-	document.getElementById('text').innerHTML = "version 1.0.7";	
+	document.getElementById('text').innerHTML = "version 1.0.8";	
 	}
 </script>
   <script>
@@ -491,6 +491,7 @@ document.getElementById('text').innerHTML = "tap NFC card";
 	
       } catch {
         console.log("Write failed :-( try again.");
+	document.getElementById('text').innerHTML = "Write failed :-( try again.";
       };
   } catch (error) {
     console.log("error! " + error);
