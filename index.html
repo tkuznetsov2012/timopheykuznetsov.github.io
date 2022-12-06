@@ -331,6 +331,10 @@
   </div>	  
 
 </div>
+<label for="name">Введите имя:</label>
+
+<input type="text" id="name" name="name" required
+       minlength="4" maxlength="10" size="10">
   <!-- <button id="scanButton">Read</button>
 <button id="writeButton">Write</button> -->
   <h2 id="text"></h2>
@@ -344,11 +348,13 @@
   	console.log("Web NFC is not available. Use Chrome on Android.");
   	document.getElementById('text').innerHTML = "Web NFC is not available. Use Chrome on Android.";
 	} else{
-	document.getElementById('text').innerHTML = "version 1.0.5";	
+	document.getElementById('text').innerHTML = "version 1.0.6";	
 	}
 </script>
   <script>
-  document.getElementById('scanButton').addEventListener("click", async () => {
+	  
+async function read(){
+	{
   console.log("User clicked scan button");
   document.getElementById('text').innerHTML ="";
   try {
@@ -428,7 +434,12 @@
     console.log("error! " + error);
     document.getElementById('text3').innerHTML = "Error! " + error;
   }
-});
+}
+}
+	  
+  document.getElementById('scanButton').addEventListener("click", async () => {
+	  read();
+  });
 
 document.getElementById('writeButton').addEventListener("click", async () => {
   console.log("User clicked write button");
@@ -437,8 +448,11 @@ document.getElementById('text').innerHTML = "tap NFC tag";
     const ndef = new NDEFReader();
       try {
         await ndef.write({
-          records: [{ recordType: "url", data: "https://timopheykuznetsov.github.io" }, { recordType: "text", data: "text1" }, { recordType: "text", data: "text2" }]
-        });
+          records: [{ recordType: "url", data: "https://timopheykuznetsov.github.io" }, { recordType: "text", data: "text1" }, { recordType: "text", data: document.getElementById('name').value }]
+        }).then(() => {
+    		read();
+  	});
+	
       } catch {
         console.log("Write failed :-( try again.");
       };
