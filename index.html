@@ -352,6 +352,7 @@
         // TODO: Read text record with record data, lang, and encoding.
         const textDecoder = new TextDecoder(record.encoding);
         document.getElementById('text').innerHTML = "Текст: ${textDecoder.decode(record.data)}";
+	break;
       case "url":
         textDecoder = new TextDecoder();
 	document.getElementById('text').innerHTML = "URL: ${textDecoder.decode(record.data)}";
