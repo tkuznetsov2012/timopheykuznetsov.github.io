@@ -489,9 +489,9 @@ document.getElementById('text').innerHTML = "tap NFC card";
     		read();
   	});
 	
-      } catch {
+      } catch (err) {
         console.log("Write failed :-( try again.");
-	document.getElementById('text').innerHTML = "Write failed :-( try again.";
+	document.getElementById('text').innerHTML = "Write failed :" + err;
       };
   } catch (error) {
     console.log("error! " + error);
