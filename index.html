@@ -380,7 +380,7 @@ async function read(){
     try{
       console.log("> Serial Number: ${serialNumber}");
       console.log("> Records: (${message.records.length})");
-      
+      document.getElementById('text').innerHTML = "Data:";
       switch (record.recordType) {
       case "text":
         // TODO: Read text record with record data, lang, and encoding.
@@ -442,7 +442,7 @@ async function read(){
     });
   } catch (error) {
     console.log("error! " + error);
-    document.getElementById('text3').innerHTML = "Error! " + error;
+    document.getElementById('text').innerHTML = "Error! " + error;
   }
 }
 }
