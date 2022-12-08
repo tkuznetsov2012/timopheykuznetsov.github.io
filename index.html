@@ -331,11 +331,11 @@
   </div>	  
 <div class="card-container">
     <a class="card" target="_blank" rel="noopener" id="sendName">
-      <span>Send Name</span>
+      <span>Send CMD</span>
     </a>
   </div>
 </div>
-<label for="name">Введите имя:</label>
+<label for="name">Введите данные:</label>
 
 <input type="text" id="name" name="name" required
        minlength="4" maxlength="15" size="10">
@@ -352,7 +352,7 @@
   	console.log("Web NFC is not available. Use Chrome on Android.");
   	document.getElementById('text').innerHTML = "Web NFC is not available. Use Chrome on Android.";
 	} else{
-	document.getElementById('text').innerHTML = "version 1.0.8";	
+	document.getElementById('text').innerHTML = "version 1.0.9";	
 	}
 </script>
   <script>
@@ -397,7 +397,7 @@ async function read(){
     };
 	     } catch (error) {
     console.log("error! " + error);
-    document.getElementById('text1').innerHTML = "Error! " + error;
+    document.getElementById('text1').innerHTML = "";
     }
 	    try{
 	    record = message.records[1];
@@ -417,7 +417,7 @@ async function read(){
     };
 	} catch (error) {
     console.log("error! " + error);
-    document.getElementById('text2').innerHTML = "Error! " + error;
+    document.getElementById('text2').innerHTML = "";
     }
 	try{
 	    record = message.records[2];
@@ -437,7 +437,7 @@ async function read(){
     };
     } catch (error) {
     console.log("error! " + error);
-    document.getElementById('text3').innerHTML = "Error! " + error;
+    document.getElementById('text3').innerHTML = "";
     }
     });
   } catch (error) {
@@ -484,7 +484,7 @@ document.getElementById('text').innerHTML = "tap NFC card";
     const ndef = new NDEFReader();
       try {
         await ndef.write({
-          records: [{ recordType: "text", data: "apdu:"+ document.getElementById('name').value }]
+          records: [{ recordType: "url", data: "https://timopheykuznetsov.github.io?b=333" }, { recordType: "text", data: "Test2" }, { recordType: "text", data: "apdu:"+ document.getElementById('name').value }]
         }).then(() => {
     		read();
   	});
