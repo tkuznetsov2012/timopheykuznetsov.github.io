@@ -297,6 +297,8 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="canonical" href="https://timopheykuznetsov.github.io/github-page-pwa/" />
+  <link rel="manifest" href="/github-page-pwa/manifest.webmanifest">	
  
 </head>
 <body>
@@ -345,6 +347,14 @@
 	<p id="text1"></p>
 	<p id="text2"></p>
 	<p id="text3"></p>
+  <script>
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register (
+          '/github-page-pwa/sw.js',
+          {scope: '/github-page-pwa/'}
+        )
+      }
+  </script>	
   <script src="https://unpkg.com/text-encoding@0.6.4/lib/encoding-indexes.js"></script>
   <script src="https://unpkg.com/text-encoding@0.6.4/lib/encoding.js"></script>
   <script>
